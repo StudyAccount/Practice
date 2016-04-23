@@ -10,8 +10,11 @@ public class SumDigits {
         sb.append(number);
 
         int result = 0;
+
         for (int i = 0; i < sb.length(); i++) {
-            result += Character.digit(sb.charAt(i), 10);
+            if (Character.isDigit(sb.charAt(i))) {
+                result += Character.digit(sb.charAt(i), 10);
+            }
         }
 
         return result;

@@ -19,4 +19,15 @@ public class SumDigitsTest {
 
         Assert.assertEquals("", expected, actual);
     }
+
+    @Test (timeout = 1000)
+    public void testSum2() throws Exception {
+
+        int input = -256;
+        int expected = 13;
+
+        int actual = sumDigits.sum(input);
+
+        Assert.assertEquals("", expected, actual);
+    }
 }
