@@ -49,4 +49,13 @@ public class MatrixTraversalTest {
         Assert.assertArrayEquals("", expected, actual);
     }
 
+    @Test
+    public void testPrintEmptyArray() throws Exception {
+        int[][] input = {{}};
+        int[] expected = {};
+
+        int[] actual = matrixTraversal.print(input);
+        Assert.assertArrayEquals("", expected, actual);
+    }
+
 }

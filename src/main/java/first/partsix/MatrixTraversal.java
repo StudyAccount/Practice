@@ -10,54 +10,40 @@ public class MatrixTraversal {
 
         ArrayList<Integer> temp = new ArrayList<Integer>();
 
-        int firstRowElement = 0;
-        int lastRowElement = input.length - 1;
-        int firstColumnElement = 0;
-        int lastColumnElement = input[0].length - 1;
-        int i = 0;
-        int j = 0;
-        int directionColumn = 1;
-        int directionRow = 1;
-        int currentColumn = 0;
-        int currentRow = 0;
+        int firstColumn = 0;
+        int firstRow = 0;
+        int lastColumn = input[0].length - 1;
+        int lastRow = input.length - 1;
 
+        while (lastRow >= 0) {
+            for (int j = firstColumn; j <= lastColumn; j++) {
+                temp.add(input[firstRow][j]);
+                }
+            firstRow++;
 
-        while (i >= firstRowElement && i <= lastRowElement){
+            for (int i = firstRow; i <= lastRow; i++) {
+                temp.add(input[i][lastColumn]);
+                }
+            lastColumn--;
 
-            while (j >= firstColumnElement && j <= lastColumnElement){
+            if (firstRow > lastRow) break;
 
-                temp.add(input[i][j]);
-                currentColumn = j;
-                currentRow = i;
-                j += directionColumn;
-            }
+            for (int j = lastColumn; j >= firstColumn; j--) {
+                temp.add(input[lastRow][j]);
+                }
+            lastRow--;
 
-            if (j >= 0) {
-                i += directionRow;
+            if (firstRow > lastRow) break;
 
-            } else {
-                directionRow = -1 * directionRow;
-                i += directionRow;
-                lastColumnElement = currentColumn;
-                directionColumn = -1 * directionColumn;
-
-            }
-
-            if (i <= lastRowElement) {
-                j = currentColumn;
-
-            }else {
-                directionColumn = -1 * directionColumn;
-//                j += directionColumn;
-                j -= 2;
-                i = currentRow;
-                lastColumnElement = currentColumn - 1;
-            }
+            for (int i = lastRow; i >= firstRow; i--) {
+                temp.add(input[i][firstColumn]);
+                }
+            firstColumn++;
 
         }
 
         return arrayListToArray(temp);
-        }
+    }
 
     private int[] arrayListToArray(ArrayList<Integer> temp) {
         int[] output = new int[temp.size()];
