@@ -23,6 +23,10 @@ public class MatrixSnakeTraversal {
             }
         }
 
+        return arraylistToArray(temp);
+    }
+
+    private int[] arraylistToArray(ArrayList<Integer> temp) {
         int[] output = new int[temp.size()];
 
         for (int k = 0; k < output.length; k++){
