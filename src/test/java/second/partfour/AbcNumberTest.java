@@ -3,23 +3,22 @@ package second.partfour;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
- * Created by SleepWalker on 09.05.2016.
+ * Created by User on 10.05.2016.
  */
 public class AbcNumberTest {
 
     AbcNumber abcNumber = new AbcNumber();
+
     @Test
-    public void convert() throws Exception {
+    public void testConvert() throws Exception {
 
-        String num = "bcd";
-
+        String input = "bcd";
         int expected = 123;
 
-        int actual = abcNumber.convert(num);
-        Assert.assertEquals("", expected, actual);
-    }
+        int actual = abcNumber.convert(input);
 
+        Assert.assertEquals("", expected, actual);
+
+    }
 }
