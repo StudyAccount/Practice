@@ -56,7 +56,7 @@ public class DoublesTest {
 
     @Test
     public void testParseIncorrectInput() throws Exception {
-        String input = "-123.e0044";
+        String input = "-123.z0044";
         Double expected = null;
 
         Double actual = doubles.parse(input);
@@ -79,7 +79,7 @@ public class DoublesTest {
     @Test
     public void testParseNullPointer() throws Exception {
         String input = "-.0";
-        Double expected = 0.0;
+        Double expected = -0.0;
 
         Double actual = doubles.parse(input);
 
@@ -108,4 +108,27 @@ public class DoublesTest {
         Assert.assertEquals(expected, actual, 0.0);
 
     }
+
+    @Test
+    public void testParseE() throws Exception {
+        String input = "2.e2";
+        Double expected = 200.0;
+
+        Double actual = doubles.parse(input);
+
+        Assert.assertEquals(expected, actual, 0.0);
+
+    }
+
+    @Test
+    public void testParseENull() throws Exception {
+        String input = ".e10";
+        Double expected = null;
+
+        Double actual = doubles.parse(input);
+
+        Assert.assertEquals(expected, actual);
+
+    }
+
 }

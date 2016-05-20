@@ -16,14 +16,14 @@ public class WordNumber {
 
         int counter = 0;
         int iterator = 0;
+        boolean condition = (string.charAt(iterator) >= ASCII_UPPER_A && string.charAt(iterator) <= ASCII_UPPER_Z) ||
+                (string.charAt(iterator) >= ASCII_LOW_A && string.charAt(iterator) <= ASCII_LOW_Z);
 
         while (iterator < string.length()){
 
-            if ((string.charAt(iterator) >= ASCII_UPPER_A && string.charAt(iterator) <= ASCII_UPPER_Z) ||
-                    (string.charAt(iterator) >= ASCII_LOW_A && string.charAt(iterator) <= ASCII_LOW_Z)){
+            if (condition){
 
-                while ((string.charAt(iterator) >= ASCII_UPPER_A && string.charAt(iterator) <= ASCII_UPPER_Z) ||
-                        (string.charAt(iterator) >= ASCII_LOW_A && string.charAt(iterator) <= ASCII_LOW_Z)){
+                while (condition){
 
                     iterator++;
 
